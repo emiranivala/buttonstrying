@@ -1,6 +1,5 @@
 #devggn
 
-
 import asyncio
 import logging
 from pyromod import listen
@@ -26,23 +25,20 @@ app = Client(
     workers=10,
     sleep_threshold=20,
     max_concurrent_transmissions=5,
-    parse_mode="markdown",
-    show_menu=True,
-    bot_commands=[
+    parse_mode="markdown"
+)
+
+async def restrict_bot():
+    global BOT_ID, BOT_NAME, BOT_USERNAME
+    await app.start()
+    await app.set_bot_commands([
         ("start", "Launch the application"),
         ("batch", "Download in bulk"),
         ("login", "Login process to userbot"),
         ("logout", "Logout and clear data"),
         ("myplan", "View your personalized plan"),
         ("stats", "Display statistics and insights")
-    ]
-)
-
-
-
-async def restrict_bot():
-    global BOT_ID, BOT_NAME, BOT_USERNAME
-    await app.start()
+    ])
     getme = await app.get_me()
     BOT_ID = getme.id
     BOT_USERNAME = getme.username
