@@ -25,7 +25,17 @@ app = Client(
     bot_token=BOT_TOKEN,
     workers=10,
     sleep_threshold=20,
-    max_concurrent_transmissions=5
+    max_concurrent_transmissions=5,
+    parse_mode="markdown",
+    show_menu=True,
+    bot_commands=[
+        ("start", "Launch the application"),
+        ("batch", "Download in bulk"),
+        ("login", "Login process to userbot"),
+        ("logout", "Logout and clear data"),
+        ("myplan", "View your personalized plan"),
+        ("stats", "Display statistics and insights")
+    ]
 )
 
 
