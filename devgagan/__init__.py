@@ -25,7 +25,7 @@ app = Client(
     workers=10,
     sleep_threshold=20,
     max_concurrent_transmissions=5,
-    parse_mode="html",
+    parse_mode="HTML",
     workdir="."
 )
 
