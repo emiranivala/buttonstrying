@@ -85,7 +85,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                         await edit.delete()
                     except Exception:
                         pass
-                    await message.reply_text("Content will be deleted in 5 minutes.\nForward to saved messages", parse_mode="markdown")
+                    await message.reply_text("Content will be deleted in 5 minutes.\nForward to saved messages", parse_mode="html")
                     await asyncio.sleep(SECONDS)
                     for m in snt_msgs:
                         try:
@@ -110,7 +110,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                         await edit.delete()
                     except Exception:
                         pass
-                    await message.reply_text("Content will be deleted in 5 minutes.\nForward to saved messages", parse_mode="markdown")
+                    await message.reply_text("Content will be deleted in 5 minutes.\nForward to saved messages", parse_mode="html")
                     await asyncio.sleep(SECONDS)
                     for m in snt_msgs:
                         try:
@@ -245,7 +245,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
                         await edit.delete()
                     except Exception:
                         pass
-                    await message.reply_text("Content will be deleted in 5 minutes.\nForward to saved messages", parse_mode="markdown")
+                    await message.reply_text("Content will be deleted in 5 minutes.\nForward to saved messages", parse_mode="html")
                     await asyncio.sleep(SECONDS)
                     for m in snt_msgs:
                         try:
