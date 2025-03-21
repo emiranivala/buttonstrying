@@ -18,26 +18,28 @@ logging.basicConfig(
 sex = TelegramClient('sexrepo', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
 app = Client(
-    ":RestrictBot:",
+    "RestrictBot",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
     workers=10,
     sleep_threshold=20,
     max_concurrent_transmissions=5,
-    parse_mode="markdown"
+    parse_mode="markdown",
+    workdir="."
 )
 
 async def restrict_bot():
     global BOT_ID, BOT_NAME, BOT_USERNAME
     await app.start()
+    from pyrogram.types import BotCommand
     await app.set_bot_commands([
-        ("start", "Launch the application"),
-        ("batch", "Download in bulk"),
-        ("login", "Login process to userbot"),
-        ("logout", "Logout and clear data"),
-        ("myplan", "View your personalized plan"),
-        ("stats", "Display statistics and insights")
+        BotCommand("start", "Launch the application"),
+        BotCommand("batch", "Download in bulk"),
+        BotCommand("login", "Login process to userbot"),
+        BotCommand("logout", "Logout and clear data"),
+        BotCommand("myplan", "View your personalized plan"),
+        BotCommand("stats", "Display statistics and insights")
     ])
     getme = await app.get_me()
     BOT_ID = getme.id
