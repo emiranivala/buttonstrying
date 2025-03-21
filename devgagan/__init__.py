@@ -4,6 +4,7 @@ import asyncio
 import logging
 from pyromod import listen
 from pyrogram import Client
+from pyrogram.enums import ParseMode
 from config import API_ID, API_HASH, BOT_TOKEN
 from telethon.sync import TelegramClient
 
@@ -25,7 +26,7 @@ app = Client(
     workers=10,
     sleep_threshold=20,
     max_concurrent_transmissions=5,
-    parse_mode="HTML",
+    parse_mode=ParseMode.HTML,
     workdir="."
 )
 
